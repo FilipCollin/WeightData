@@ -1,0 +1,9 @@
+Release Notes for version 0.0.2
+
+New in version 0.0.2.
+
+- Introducing 'Initialize Weight Data'
+- Add-WeightData now notifies if 'Initialize-Weight Data' has not been executed. 
+- Get-WeightData now notifies if 'Initialize-Weight Data' has not been executed. 
+- Compare-WeightData now notifies if 'Initialize-Weight Data' has not been executed. 
+- Remove-WeightData now notifies if 'Initialize-Weight Data' has not been executed. 
