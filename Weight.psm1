@@ -46,16 +46,16 @@ function Initialize-WeightData {
             [string] $Path
        )
    
-       Write-Verbose "Checking for elevated permissions..."
+          Write-Verbose "Checking for elevated permissions..."
        if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
        [Security.Principal.WindowsBuiltInRole] "Administrator")) {
 
-         Write-Warning "Insufficient permissions to run this script. Open the PowerShell console as an administrator and run this script again."
-         Break
+          Write-Warning "Insufficient permissions to run this script. Open the PowerShell console as an administrator and run this script again."
+          Break
        }
        else {
 
-         $TestPath = Test-Path -Path $Path
+          $TestPath = Test-Path -Path $Path
    
        if ($TestPath -eq $false){
           
@@ -63,12 +63,12 @@ function Initialize-WeightData {
 
           Write-Verbose "Created a the path that the user entered."
           
-         $ModuleBase = Get-Module -Name WeightDev -ListAvailable -All
-         $ModulePath = $ModuleBase = "$($ModuleBase.ModuleBase[0])\weightdev.psm1"
+          $ModuleBase = Get-Module -Name Weight -ListAvailable -All
+          $ModulePath = $ModuleBase = "$($ModuleBase.ModuleBase[0])\weight.psm1"
 
           $Content = Get-Content -Path $modulePath
  
-          $Content -replace "Birds", "$($Path)" | Set-Content -Path $ModulePath
+          $Content -replace "E:\OneDrive\WeightData\WeightData.csv", "$($Path)" | Set-Content -Path $ModulePath
  
           Write-Output "Initialization completed." 
           Write-Output "CSV file created in $Path"
